@@ -21,6 +21,10 @@ export default class ClassList extends Component {
     .catch( err => console.log(err));
   }
 
+  handleButton = () => {
+    this.props.history.goBack()
+  }
+
   render() {
     // console.log(this.props)
     let mappedStudents = this.state.students.map((student , index) => ( 
@@ -34,6 +38,7 @@ export default class ClassList extends Component {
         <h1>{this.props.match.params.class}</h1>
         <h2>ClassList:</h2>
         {mappedStudents}
+        <button onClick={this.handleButton}>Back To Home</button>
       </div>
     )
   }
